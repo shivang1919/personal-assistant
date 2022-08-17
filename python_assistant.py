@@ -13,7 +13,7 @@ engine.setProperty('voice', voices[0].id)
 def speak(audio):
     engine.say(audio) # says text
     engine.runAndWait()
-# speak("Hello Sir I am Shaurya! How may I help You Today")
+speak("Hello Sir I am Shaurya! How may I help You Today")
 def time():
     Time = datetime.datetime.now().strftime("%H hours %M minutes %S seconds")
     speak("The time right now is" + Time)
@@ -66,11 +66,9 @@ def sendEmail(receiver_id,content):
     server = smtplib.SMTP('smntp.gmail.com', 587)
     server.ehlo()
     server.starttls()
-    server.login('shivangnov@gmail.com','aman1108*')
+    server.login('youremailid','your password')
     server
 if __name__ == "__main__":
-    # greet()
-    
     while True:
         query = takeCommand().lower()
         if 'wikipedia' in query:
@@ -81,7 +79,7 @@ if __name__ == "__main__":
             print(results)
             speak(results)
         elif 'hello' in query:
-            speak("hello! how may I help you?")
+            greet()
         elif 'send email' in query:
             try:
                 speak("What should I say?")
@@ -133,6 +131,6 @@ if __name__ == "__main__":
             time()
         elif 'date' in query:
             date()
-        elif 'open vs code' in query:
-            vscodepath = "--------------------------------------------------"
-            os.startfile(vscodepath)
+        elif 'open file' in query:
+            filepath = "--------------------------------------------------"
+            os.startfile(filepath)
